@@ -1,18 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     margin: 0;
+    font-family: 'Advent Pro', sans-serif;
+
 }
 .header-container {
-    max-width: 1400px;
+    max-width: 1250px;
     margin-left: auto;
     margin-right: auto;
-    min-height: 450px;
+    min-height: 80vh;
 }
 header {
     background-image: url("headerbanner.jpg");
     background-color: #000;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 450px;
+    min-height: 80vh;
     position: relative;
     top: center;
     left: center;
@@ -37,15 +42,41 @@ a {
     color: #ffff;
 }
 .header-title {
-    width: 45%;
-    margin: 10% auto;
-    text-align: center;
-    font-size: 25px;
+  color: rgb(90, 223, 57);
+  font-size: 18px;
+  margin: 7rem 10%;
+  padding:1rem 1rem 7rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: 'Press Start 2P', cursive;
 }
+.typing-text {
+    width: 33ch;
+    font-size: 25px;
+    white-space: nowrap; /* не переносить текст на другую строку */
+    overflow: hidden; /* скрываем переполнение контентом */
+    border-right: 3px solid  rgb(90, 223, 57);; /* рисуем курсор */
+    animation: cursor 0.85s step-end infinite, printed_text 6s steps(33);
+  }
+  @keyframes cursor {
+    0% {
+      border-color: rgb(90, 223, 57);
+    }  
+    50% {
+      border-color: transparent;
+    }  
+    100% {
+      border-color: white;
+    }
+  }
+  
+  @keyframes printed_text {
+    from {
+      width: 0;
+    }
+  }
 .nav-menu {
     display: flex;
     justify-content: space-between;
-    margin: auto 10%;
 }
 .nav-menu-list {
     font-size: 1.1em;
@@ -53,7 +84,7 @@ a {
     list-style-type: none;
 }
 .link-nav {
-    margin-left: 2em;
+    margin: 2em;
 }
 .logo {
     margin-top: 1rem;
