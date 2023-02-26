@@ -2,69 +2,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    margin: 0;
-    font-family: 'Alegreya SC', serif;
+  margin: 0;
+  font-family: 'Alegreya SC', serif;
 }
+
 .header-container {
-    max-width: 1250px;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 80vh;
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
 }
+
 header {
-    background-image: url("headerbanner.jpg");
-    background-color: #000;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 80vh;
-    position: relative;
-    top: center;
-    left: center;
-    z-index: 0;
-    color: #ffff;
+  background-image: url("headerbanner.jpg");
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  top: center;
+  left: center;
+  z-index: 0;
+  color: #ffff;
 }
+
 header::before {
-    content: "";
-    background-color: #000;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -3;
-    opacity: 0.6;
+  content: "";
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -3;
+  opacity: 0.6;
 }
+
 a {
-    text-decoration: none;
-    color: #ffff;
+  text-decoration: none;
+  color: #ffff;
 }
+
 .header-title {
   color: rgb(90, 223, 57);
   font-size: 18px;
   margin: 7rem 10%;
-  padding:1rem 1rem 7rem;
+  padding: 1rem 1rem 7rem;
   background-color: rgba(0, 0, 0, 0.5);
   font-family: 'Press Start 2P', cursive;
 }
-.typing-text {
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-menu-list {
+  font-size: 1.1em;
+  display: flex;
+  list-style-type: none;
+}
+
+.link-nav {
+  margin: 2em;
+}
+
+.logo {
+  margin-top: 1rem;
+  font-size: 1.5em;
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    max-width: 100%;
+  }
+  
+  .header-title {
+    font-size: 12px;
+    margin:10%;
+    padding: 1em;
+  }
+
+  .typing-text {
+    font-size: 14px;
+  }
+  .nav-menu-list {
+    display: none;
+  }
+}
+@media (min-width: 481px) { 
+  .typing-text {
     width: 35ch;
     font-size: 25px;
-    white-space: nowrap; /* не переносить текст на другую строку */
-    overflow: hidden; /* скрываем переполнение контентом */
-    border-right: 3px solid  rgb(90, 223, 57);; /* рисуем курсор */
+    white-space: nowrap;
+    /* не переносить текст на другую строку */
+    overflow: hidden;
+    /* скрываем переполнение контентом */
+    border-right: 3px solid rgb(90, 223, 57);
+    ;
+    /* рисуем курсор */
     animation: cursor 0.55s step-end infinite, printed_text 4s steps(35);
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
+  
   @keyframes cursor {
     0% {
       border-color: rgb(90, 223, 57);
-    }  
+    }
+  
     50% {
       border-color: transparent;
-    }  
+    }
+  
     100% {
       border-color: white;
     }
@@ -75,19 +127,4 @@ a {
       width: 0;
     }
   }
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-}
-.nav-menu-list {
-    font-size: 1.1em;
-    display: flex;
-    list-style-type: none;
-}
-.link-nav {
-    margin: 2em;
-}
-.logo {
-    margin-top: 1rem;
-    font-size: 1.5em;
 }
