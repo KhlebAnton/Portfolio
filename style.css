@@ -50,12 +50,14 @@ a {
   font-family: 'Press Start 2P', cursive;
 }
 .typing-text {
-    width: 33ch;
+    width: 35ch;
     font-size: 25px;
     white-space: nowrap; /* не переносить текст на другую строку */
     overflow: hidden; /* скрываем переполнение контентом */
     border-right: 3px solid  rgb(90, 223, 57);; /* рисуем курсор */
-    animation: cursor 0.85s step-end infinite, printed_text 6s steps(33);
+    animation: cursor 0.55s step-end infinite, printed_text 4s steps(35);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
   @keyframes cursor {
     0% {
