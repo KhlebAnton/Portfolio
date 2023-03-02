@@ -50,7 +50,7 @@ a {
   color: rgb(90, 223, 57);
   font-size: 18px;
   margin-top: 10%;
-  width: 50ch;
+  width: 70%;
   padding: 1rem 1rem 7rem;
   background-color: rgba(0, 0, 0, 0.5);
   font-family: 'Press Start 2P', cursive;
@@ -80,8 +80,8 @@ a {
 @media (max-width: 768px) { 
   .header-title {
     font-size: 12px;
-    margin:10%;
     padding: 1em;
+    width: 90%;
   }
 
   .typing-text {
@@ -132,5 +132,8 @@ a {
 @media (min-width: 768px) and (max-width: 1095px) {
   .typing-text {
     font-size: 2.19vw;
+  }
+  .header-title {
+    width: 90%;
   }
 }
