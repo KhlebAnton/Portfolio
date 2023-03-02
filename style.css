@@ -57,6 +57,7 @@ a {
 .nav-menu {
   display: flex;
   justify-content: space-between;
+  max-width: 100%;
 }
 
 .nav-menu-list {
@@ -74,7 +75,7 @@ a {
   font-size: 1.5em;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .header-container {
     max-width: 90%;
   }
@@ -92,10 +93,11 @@ a {
     display: none;
   }
 }
-@media (min-width: 481px) { 
+
+@media (min-width: 783px)  { 
   .typing-text {
     width: 35ch;
-    font-size: 25px;
+    font-size: 24px;
     white-space: nowrap;
     /* не переносить текст на другую строку */
     overflow: hidden;
@@ -126,5 +128,11 @@ a {
     from {
       width: 0;
     }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1095px) {
+  .typing-text {
+    font-size: 2.19vw;
   }
 }
