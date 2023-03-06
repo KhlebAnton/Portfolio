@@ -84,50 +84,11 @@ a {
     width: 90%;
   }
 
-  .typing-text {
-    font-size: 14px;
-  }
   .nav-menu-list {
     display: none;
   }
 }
-
-@media (min-width: 783px)  { 
-  .typing-text {
-    width: 35ch;
-    font-size: 24px;
-    white-space: nowrap;
-    /* не переносить текст на другую строку */
-    overflow: hidden;
-    /* скрываем переполнение контентом */
-    border-right: 3px solid rgb(90, 223, 57);
-    ;
-    /* рисуем курсор */
-    animation: cursor 0.55s step-end infinite, printed_text 4s steps(35);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
   
-  @keyframes cursor {
-    0% {
-      border-color: rgb(90, 223, 57);
-    }
-  
-    50% {
-      border-color: transparent;
-    }
-  
-    100% {
-      border-color: white;
-    }
-  }
-  
-  @keyframes printed_text {
-    from {
-      width: 0;
-    }
-  }
-}
 
 @media (min-width: 768px) and (max-width: 1095px) {
   .typing-text {
