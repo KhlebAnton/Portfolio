@@ -12,30 +12,71 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon\favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon\favicon-16x16.png">
     <link rel="manifest" href="favicon\site.webmanifest">
+    <link rel="icon" href="favicon.ico">
 
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <nav class="nav-menu">
-                <span class="logo"><a href="#0" class="logo-link">Khlebnikov Anton</a></span>
-                <ol class="nav-menu-list">
-                    <li><a class="link-nav" href="#0">Главная</li></a>
-                    <li><a class="link-nav" href="#0">Обо Мне</li></a>
-                    <li><a class="link-nav" href="#0">Мои Работы</li></a>
-                    <li><a class="link-nav" href="#0">Мои Контакты</li></a>
-                    <li><a class="link-nav" href="#0">Резюме</li></a>
-                </ol>
-            </nav>
-            <div class="header-title">
-                <p>Привет! Меня зовут</p>
-                <h1>Хлебников Антон</h1>
-                <span>Я
-                    <span class="typing-text"></span>
-                </span>
+    <div class="page">
+        <header>
+            <div id="home" class="header-container">
+                <nav class="nav-menu">
+                    <span class="logo"><a href="#0" class="logo-link">Khleb</a></span>
+                    <ol class="nav-menu-list">
+                        <li><a class="link-nav" href="#home">Главная</a></li>
+                        <li><a class="link-nav" href="#works">Мои Работы</a></li>
+                        <li><a class="link-nav" href="#contact">Мои Контакты</a></li>
+                        <li><a class="link-nav" href="https://disk.yandex.ru/i/5GcbtvKWDEFUOQ" target="_blank">Резюме</a></li>
+                    </ol>
+                    <span class="summary"><a class="link-nav" href="https://disk.yandex.ru/i/5GcbtvKWDEFUOQ" target="_blank">Резюме</a></span>
+                </nav>
+                <div class="header-title">
+                    <span>Привет! Меня зовут</span>
+                    <h1>Хлебников Антон</h1>
+                    <span>Я
+                        <span class="typing-text"></span>
+                    </span>
+                    <p>На данный момент я активно обучаюсь на Frontend-разработчика. Живу и радуюсь жизни в г.Пермь.
+                    </p>
+                </div>
+                <div class="button-container">
+                    <a class="btn" href="#contact">Напиши мне!</a>
+                    <a class="btn" href="#works">Посмотреть работы</a>
+                </div>
+        </header>
+        <main>
+            <div class="perview">
+                <h2>Мои работы</h2>
+                <p>Еще немного, но...</p>
             </div>
-    </header>
+            <div id="works" class="works">
+                <article>
+                    
+                    <img src="img/work1.png" alt="Моя дипломная работа по верстке">
+                
+                    <p>Первая работа. Кроссбраузерная вёрстка. Адаптив.<br>Полный сайт <a href="https://khlebanton.github.io/DiplomNetgy/" target="_blank">тут</a>.</p>
+                </article>
+                <article>
+                    
+                    <img src="img/work2.png" alt="Моя дипломная работа по верстке">
+                
+                    <p>Сделал по макету в Figma, найдененному в Телегерамм. Не лучшая работа. Заменю скоро..<br>Полный сайт <a href="https://khlebanton.github.io/Figma1/" target="_blank">тут</a>.</p>
+                </article>
+            </div>
+        </main>
+        <footer>
+            <div id="contact" class="perview">
+                <h2>Связаться со мной</h2>
+                <p>На почту, телеграмм и тд..</p>
+            </div>
+            
+            <span class="tel">
+                <img src="img/cellphone_79786.svg" alt="телефон"><a href="tel: +79082558446">+79082558446</a></span>
+            <span class="email"><img src="img/mail_email_message_electronic_online_web_icon-icons.com_59986.svg" alt="почта"><a href="mailto: khleb.4nton@ya.ru">khleb.4nton@ya.ru</a></span>
+            <span class="tgrm"><img src="img/telegram_icon_131945.svg" alt="Телеграмм"><a href="https://t.me/khlebAnton" target="_blank">Телеграмм</a></span>
+    
+        </footer>
+    </div>
 
     <script src="../script.js"></script>
 </body>
