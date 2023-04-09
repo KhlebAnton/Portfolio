@@ -185,6 +185,12 @@ a {
   width: 1em;
   margin-right: 0.5em;
  }
+
+ .copy {
+  text-align: center;
+  margin: 1rem auto;
+  color: #fff;
+ }
  @media (min-width: 1200px) {
   .summary {
     display: none;
@@ -213,7 +219,7 @@ a {
   }
   .works article {
     width: 80%;
-    min-height: 50vh;
+    
   }
   .header-container {
     background-position: 50% 50%;
@@ -239,7 +245,7 @@ a {
     
   }
   footer span {
-    margin-bottom: 1rem;
+    margin: 1rem;
   }
 
   
