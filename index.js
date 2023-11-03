@@ -26,6 +26,7 @@ navs.forEach(nav => {
             contentBlocks.forEach(block => {
                 if (block.classList.contains(id)) {
                     block.classList.add('open');
+                    window.scrollTo(0, 0);
                 } else {
                     block.classList.remove('open');
                 }
