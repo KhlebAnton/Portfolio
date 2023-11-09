@@ -1,5 +1,6 @@
 window.onload = function () {
 	document.body.classList.add('loaded_hiding');
+	
 
 	window.setTimeout(function () {
 		document.body.classList.remove('loaded_hiding');
@@ -32,6 +33,7 @@ navs.forEach(nav => {
 		}
 	})
 })
+
 
 
 let quotes = [
@@ -67,24 +69,10 @@ let quotes = [
 		"80% успеха - это появиться в нужном месте в нужное время."
 	],
 ];
-function getCookie() {
-	return document.cookie.split('; ').reduce((acc, item) => {
-		const [name, value] = item.split('=')
-		acc[name] = value
-		return acc
-	}, {})
-}
-
-const cookie = getCookie()
 
 
-let date = new Date(Date.now() + 86400e3);
-date = date.toUTCString();
-if(!cookie.quote) {
-	document.cookie = `quote =${quotes[Math.floor(Math.random() * quotes.length)]}; expires=" + date`;
-}
 
-let quote = cookie.quote;
+let quote = quotes[Math.floor(Math.random() * quotes.length)];
 let phrase = document.querySelector("#phrase");
 phrase.innerHTML = quote;
 
