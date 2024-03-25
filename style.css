@@ -222,7 +222,9 @@ footer {
   padding: 0.5rem 0;
   border-top: 1px solid #555555;
 }
-
+.nav {
+  cursor: pointer;
+}
 footer div {
   display: flex;
   flex-direction: column;
