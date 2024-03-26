@@ -5,7 +5,6 @@
   margin: 0;
   
 }
-
 .work-link {
   text-decoration: none;
   color: #000000;
@@ -152,6 +151,10 @@ main {
 .content.works .container .work img {
   width: 90%;
   border: 1px solid #555555;
+  transition: 0.3s ease;
+}
+.content.works .container .work img:hover {
+  transform: scale(1.1);
 }
 
 article {
