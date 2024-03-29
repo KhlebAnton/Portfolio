@@ -24,7 +24,7 @@ ul {
 
 body {
   font-family: 'PT Sans Narrow', sans-serif;
-  
+  overflow-x: hidden;
 }
 #canvas {
   position: fixed;
@@ -50,6 +50,12 @@ body {
 
 .open {
   display: block;
+  animation: artIn 0.3s ease;
+}
+@keyframes artIn {
+  from {
+    transform: translateY(-100%);
+  }
 }
 
 .preloader__image {
@@ -82,7 +88,10 @@ body {
 header {
   padding: 0.5rem;
   position: sticky;
+  width: 100vw;
+  overflow: hidden;
   top: 0;
+  z-index: 2;
   background-color: #55555575;
   border-bottom: 1px solid #555555;
   
@@ -161,6 +170,7 @@ article {
   padding: 0 2rem;
   display: none;
   height: 100%;
+  animation: artOut 0.3s ease;
 }
 
 .contact-list {
@@ -216,7 +226,7 @@ footer {
   position: fixed;
   bottom: 0;
   display: flex;
-  width: 100%;
+  width: 100vw;
   justify-content: space-evenly;
   background-color: #b9b9b9e7;
   color: #555555;
