@@ -1,235 +1,189 @@
-window.onload = function () {
-	document.body.classList.add('loaded_hiding');
-	
+const loader = document.querySelector('.loader');
+const navBar = document.querySelector('.header');
+const sideBar = document.querySelector('.side-links');
 
-	window.setTimeout(function () {
-		document.body.classList.remove('loaded_hiding');
-		document.body.classList.add('loaded');
-	}, 500);
-};
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        navBar.style.top = "0";
+        sideBar.style.left = '0';
+        loader.classList.add('hidden');
+        setTimeout(() => {
+            smallInterface.classList.remove('hidden');
+        }, 1000);
 
+        openSection('home');
+        addTalk('Привет!', true);
+        addChoise([{ data: 'who', text: 'Ты кто??' }, { data: 'hello', text: 'Эм, привет..' }]);
 
-const navs = document.querySelectorAll('.nav');
-navs.forEach(nav => {
-	nav.addEventListener('click', () => {
-		if (!nav.classList.contains('select')) {
-			navs.forEach(e => {
-				e.classList.remove('select')
-			})
-			nav.classList.add('select')
-
-
-			const id = nav.id;
-			const contentBlocks = document.querySelectorAll('.content');
-			contentBlocks.forEach(block => {
-				if (block.classList.contains(id)) {
-					block.classList.add('open');
-					window.scrollTo(0, 0);
-				} else {
-					block.classList.remove('open');
-				}
-			})
-
-		}
-	})
-})
+    }, 2000)
 
 
-
-let quotes = [
-	[
-		"Что разум человека может постигнуть и во что он может поверить, того он способен достичь"
-	],
-
-	[
-		"Стремитесь не к успеху, а к ценностям, которые он дает"
-	],
-
-	[
-		"Если вы хотите успеха, а готовитесь к поражению, то вы получите как раз то, к чему готовитесь."
-	],
-
-	[
-		"Надо любить жизнь больше, чем смысл жизни."
-	],
-
-	[
-		"Жизнь - это то, что с тобой происходит, пока ты строишь планы."
-	],
-
-	[
-		"Логика может привести Вас от пункта А к пункту Б, а воображение — куда угодно."
-	],
-
-	[
-		"Начинать всегда стоит с того, что сеет сомнения."
-	],
-
-	[
-		"80% успеха - это появиться в нужном месте в нужное время."
-	],
-];
-
-
-
-let quote = quotes[Math.floor(Math.random() * quotes.length)];
-let phrase = document.querySelector("#phrase");
-phrase.innerHTML = quote;
-
-
-window.requestAnimFrame = function () {
-	return (
-		window.requestAnimationFrame ||
-		window.webkitRequestAnimationFrame ||
-		window.mozRequestAnimationFrame ||
-		window.oRequestAnimationFrame ||
-		window.msRequestAnimationFrame ||
-		function (/* function */ callback) {
-			window.setTimeout(callback, 1000 / 60);
-		}
-	);
-}();
-
-let resizeReset = function () {
-	w = canvasBody.width = window.innerWidth;
-	h = canvasBody.height = window.innerHeight;
-}
-
-const opts = {
-	particleColor: "rgb(200,200,200)",
-	lineColor: "rgb(200,200,200)",
-	particleAmount: 30,
-	defaultSpeed: 1,
-	variantSpeed: 1,
-	defaultRadius: 2,
-	variantRadius: 2,
-	linkRadius: 200,
-};
-
-window.addEventListener("resize", function () {
-	deBouncer();
 });
 
-let deBouncer = function () {
-	clearTimeout(tid);
-	tid = setTimeout(function () {
-		resizeReset();
-	}, delay);
-};
 
-let checkDistance = function (x1, y1, x2, y2) {
-	return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-};
+setTimeout(() => {
+    navBar.style.top = `-${navBar.clientHeight}px`;
+    document.addEventListener('mousemove', function (event) {
+        const y = event.clientY;
+        if (y <= window.innerHeight * 0.1) {
+            navBar.style.top = "0";
+        } else {
+            navBar.style.top = `-${navBar.clientHeight}px`;
+        }
+    });
 
-let linkPoints = function (point1, hubs) {
-	for (let i = 0; i < hubs.length; i++) {
-		let distance = checkDistance(point1.x, point1.y, hubs[i].x, hubs[i].y);
-		let opacity = 1 - distance / opts.linkRadius;
-		if (opacity > 0) {
-			drawArea.lineWidth = 0.5;
-			drawArea.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
-			drawArea.beginPath();
-			drawArea.moveTo(point1.x, point1.y);
-			drawArea.lineTo(hubs[i].x, hubs[i].y);
-			drawArea.closePath();
-			drawArea.stroke();
-		}
-	}
+    sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
+    document.addEventListener('mousemove', function (event) {
+        const x = event.clientX;
+        if (x <= window.innerWidth * 0.1) {
+            sideBar.style.left = "0";
+        } else {
+            sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
+        }
+    });
+}, 5000);
+
+const arraySections = document.querySelectorAll('.section-slide');
+function openSection(idSection) {
+    arraySections.forEach((item) => {
+        item.classList.remove('visible')
+    })
+    let section = document.getElementById(idSection);
+    section.classList.add('visible');
 }
 
-Particle = function (xPos, yPos) {
-	this.x = Math.random() * w;
-	this.y = Math.random() * h;
-	this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed;
-	this.directionAngle = Math.floor(Math.random() * 360);
-	this.color = opts.particleColor;
-	this.radius = opts.defaultRadius + Math.random() * opts.variantRadius;
-	this.vector = {
-		x: Math.cos(this.directionAngle) * this.speed,
-		y: Math.sin(this.directionAngle) * this.speed
-	};
-	this.update = function () {
-		this.border();
-		this.x += this.vector.x;
-		this.y += this.vector.y;
-	};
-	this.border = function () {
-		if (this.x >= w || this.x <= 0) {
-			this.vector.x *= -1;
-		}
-		if (this.y >= h || this.y <= 0) {
-			this.vector.y *= -1;
-		}
-		if (this.x > w) this.x = w;
-		if (this.y > h) this.y = h;
-		if (this.x < 0) this.x = 0;
-		if (this.y < 0) this.y = 0;
-	};
-	this.draw = function () {
-		drawArea.beginPath();
-		drawArea.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-		drawArea.closePath();
-		drawArea.fillStyle = this.color;
-		drawArea.fill();
-	};
+const choiseGroup = document.querySelector('.choise-group');
+const talkGroup = document.querySelector('.talk-group');
+const iconTalk = document.querySelector('.talk-icon');
+
+
+function selectChoise(choise) {
+    let arrChoises = document.querySelectorAll('.choice');
+    arrChoises.forEach((choise) => choise.remove());
+    addTalk(choise.textContent, false);
+    setTimeout(() => { iconTalk.classList.remove('no-name') }, 2000)
+
+    switch (choise.getAttribute("data-choise")) {
+        case 'who':
+            addTalk('Ой, извини, видимо коммуникатор барахлит. Секунду.. Ах да! Меня Антон зовут.', true);
+            addChoise([{ data: 'ha-ha', text: 'Ха, коммуникатор..' }, { data: 'about', text: 'Привет, Антон. Ну и что дальше?' }]);
+            break;
+        case 'ha-ha':
+            addTalk('Смейся давай, ага. Быстро тогда про всё тут расскажу, наверху навигация по сайту, слева плашка связь со мной. Посмотри работы, свяжись со мной. Пока!', true);
+
+            break;
+        case 'about':
+            addTalk('Я разработчик сайтов, тут можешь посмотреть мои работы и связаться со мной. Сверху навигация, слева способы связи. Просто наведи мышкой к краям.', true);
+            addChoise([{ data: 'Bye', text: 'Посмотрю' }, { data: 'AI', text: 'А ты получается ИИ?' }]);
+            break;
+        case 'Bye':
+            addTalk('Способы связи выбирай любой, во вкладке "контакты" ссылки на гит и тому подобное. Счастливо!', true);
+
+            break;
+        case 'AI':
+            addTalk('Нет, я просто несколько строчек кода, посмотри подробнее мой код на Гите, ссылку я оставил во вкладке "Контакты". А теперь мне пора, Счастливо!', true);
+
+            break;
+        case 'hello':
+            addTalk('Видимо что-то со связью, пару секунд. Извини, что не представился. Меня Антон зовут.', true);
+            addChoise([{ data: 'about', text: 'Антон, ну и кто ты?' }]);
+            break;
+        default:
+            break;
+    }
+}
+
+function addTalk(string, bool) {
+    let stroke = document.createElement('p');
+    stroke.classList.add((bool) ? 'talk' : 'talk-me');
+    stroke.innerHTML = string;
+    if (bool) {
+        printText();
+        setTimeout(() => { talkGroup.append(stroke) }, 2000);
+    } else {
+        talkGroup.append(stroke);
+    }
+
+}
+
+const interface = document.getElementById('interface');
+const smallInterface = document.getElementById('interface-small');
+function toggleInterface() {
+    interface.classList.toggle('hidden');
+    smallInterface.classList.toggle('hidden');
+
+    let lastMsg = interface.querySelector('.talk-group').lastChild.textContent;
+    smallInterface.querySelector('.talk-group').textContent = lastMsg;
+
+    let bgUrl = interface.querySelector('.bg-icon').style.backgroundImage;
+    smallInterface.querySelector('.bg-icon').style.backgroundImage = bgUrl;
+
+    let iconUrl = interface.querySelector('.talk-icon').style.backgroundImage;
+    smallInterface.querySelector('.talk-icon').style.backgroundImage = iconUrl;
+    if (!interface.querySelector('.talk-icon').classList.contains('no-name')) {
+        smallInterface.querySelector('.talk-icon').classList.remove('no-name')
+    }
+}
+
+function addChoise(array) {
+    array.forEach((choise) => {
+        let choiseElem = document.createElement('div');
+        choiseElem.classList.add('hidden');
+        choiseElem.classList.add('choice');
+
+        choiseElem.setAttribute('onclick', 'selectChoise(this)');
+        choiseElem.setAttribute('data-choise', choise.data);
+        choiseElem.innerHTML = choise.text;
+        setTimeout(() => { choiseElem.classList.remove('hidden') }, 2000)
+        choiseGroup.append(choiseElem);
+    })
 };
 
-function setup() {
-	particles = [];
-	resizeReset();
-	for (let i = 0; i < opts.particleAmount; i++) {
-		particles.push(new Particle());
-	}
-	window.requestAnimationFrame(loop);
+
+function printText() {
+    let stroke = document.createElement('p');
+    stroke.classList.add('print-text');
+    stroke.innerHTML = 'набирает сообщение..';
+    talkGroup.append(stroke);
+    setTimeout(() => {
+        stroke.remove();
+    }, 2000)
 }
 
-function loop() {
-	window.requestAnimationFrame(loop);
-	drawArea.clearRect(0, 0, w, h);
-	for (let i = 0; i < particles.length; i++) {
-		particles[i].update();
-		particles[i].draw();
-	}
-	for (let i = 0; i < particles.length; i++) {
-		linkPoints(particles[i], particles);
-	}
+let iconArray = [
+    { bg: 'bg_foto_1.jpg', icon: 'talk_1.gif' },
+    { bg: 'bg_foto_2.jpg', icon: 'talk_2.gif' },
+    { bg: 'bg_foto_3.jpg', icon: 'talk_3.gif' },
+    { bg: 'bg_foto_4.jpg', icon: 'talk_4.gif' },
+
+];
+let count = 3;
+
+const bgIcon = document.querySelector('.bg-icon');
+const talkIcon = document.querySelector('.talk-icon');
+function changeIcon() {
+    if (count < 3) {
+        bgIcon.setAttribute('style', `background-image: url('./img/bg-noise.5d8fd24c.webp')`);
+        // talkIcon.setAttribute('style', `background-image:'')`);
+        talkIcon.classList.add('no-name');
+        setTimeout(() => {
+            bgIcon.setAttribute('style', `background-image: url('./img/${iconArray[count].bg}')`);
+            talkIcon.setAttribute('style', `background-image: url('./img/${iconArray[count].icon}')`);
+        }, 500);
+        setTimeout(() => { talkIcon.classList.remove('no-name'); }, 1000);
+
+        count++
+    } else {
+        count = 0;
+        bgIcon.setAttribute('style', `background-image: url('./img/bg-noise.5d8fd24c.webp')`);
+        // talkIcon.setAttribute('style', `background-image: '`);
+        talkIcon.classList.add('no-name');
+        setTimeout(() => {
+            bgIcon.setAttribute('style', `background-image: url('./img/${iconArray[0].bg}')`);
+            talkIcon.setAttribute('style', `background-image: url('./img/${iconArray[0].icon}')`);
+        }, 500);
+        setTimeout(() => { talkIcon.classList.remove('no-name'); }, 1000);
+    }
 }
 
-const canvasBody = document.getElementById("canvas"),
-	drawArea = canvasBody.getContext("2d");
-let delay = 200, tid,
-	rgb = opts.lineColor.match(/\d+/g);
-resizeReset();
-setup();
 
-const btnUp = {
-	el: document.querySelector('.btn-up'),
-	show() {
-	  // удалим у кнопки класс btn-up_hide
-	  this.el.classList.remove('btn-up_hide');
-	},
-	hide() {
-	  // добавим к кнопке класс btn-up_hide
-	  this.el.classList.add('btn-up_hide');
-	},
-	addEventListener() {
-	  // при прокрутке содержимого страницы
-	  window.addEventListener('scroll', () => {
-		// определяем величину прокрутки
-		const scrollY = window.scrollY || document.documentElement.scrollTop;
-		// если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
-		scrollY > 400 ? this.show() : this.hide();
-	  });
-	  // при нажатии на кнопку .btn-up
-	  document.querySelector('.btn-up').onclick = () => {
-		// переместим в начало страницы
-		window.scrollTo({
-		  top: 0,
-		  left: 0,
-		  behavior: 'smooth'
-		});
-	  }
-	}
-  }
-  
-  btnUp.addEventListener();

@@ -1,0 +1,26 @@
+{
+    "teplica": {
+        "title": "Казань-теплица",
+        "preview": "./works/teplica.png",
+        "description": "Теплицы казани",
+        "link": "https://kazan-teplica.ru/"
+    },
+    "roboschool": {
+        "title": "RoboSchool",
+        "preview": "./works/robotSchool.png",
+        "description": "Лендинг для курсов",
+        "link": "https://kazan-teplica.ru/"
+    },
+    "rumtibet": {
+        "title": "RumTibet",
+        "preview": "./works/rumTibet.png",
+        "description": "Туры в Тибете",
+        "link": "https://kazan-teplica.ru/"
+    },
+    "mybox": {
+        "title": "Mybox",
+        "preview": "./works/UI.png",
+        "description": "Интерфейс для игр",
+        "link": "https://kazan-teplica.ru/"
+    }
+}
