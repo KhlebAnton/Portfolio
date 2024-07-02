@@ -9,18 +9,18 @@
         "title": "RoboSchool",
         "preview": "./works/robotSchool.png",
         "description": "Лендинг для курсов",
-        "link": "https://kazan-teplica.ru/"
+        "link": "https://khlebanton.github.io/school_Robot/"
     },
     "rumtibet": {
         "title": "RumTibet",
         "preview": "./works/rumTibet.png",
         "description": "Туры в Тибете",
-        "link": "https://kazan-teplica.ru/"
+        "link": "https://khlebanton.github.io/rumTibet/"
     },
     "mybox": {
         "title": "Mybox",
         "preview": "./works/UI.png",
         "description": "Интерфейс для игр",
-        "link": "https://kazan-teplica.ru/"
+        "link": "https://github.com/KhlebAnton/MyBoxOleg.git"
     }
 }
