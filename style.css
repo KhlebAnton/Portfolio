@@ -628,6 +628,10 @@ html {
 }
 
 @media (max-width:590px) {
+  .main::after {
+    background: url('./img/mobilegif.gif') 50% / cover;
+  }
+
   .container-main {
     flex-direction: column;
     text-align: center;
@@ -671,6 +675,7 @@ html {
     height: 100%;
     width: 100%;
   }
+
   .icon-change {
     position: absolute;
     bottom: auto;
@@ -685,6 +690,6 @@ html {
     width: 6rem;
     text-align: center;
     line-height: 0.8rem;
-}
+  }
 
 }
