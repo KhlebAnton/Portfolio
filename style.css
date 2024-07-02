@@ -15,11 +15,12 @@ a {
 }
 
 html {
-  font-size: 1.111vw;
+  font-size: 16px;
   font-family: "PressStart2p", sans-serif;
   background-color: #000;
   color: #fff;
   overflow: hidden;
+
 }
 
 body,
@@ -29,6 +30,26 @@ html {
   padding: 0px;
   margin: 0px;
 
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.btn {
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: .2s;
+}
+
+.btn:hover {
+  background-color: #81061d;
 }
 
 .loader {
@@ -105,28 +126,29 @@ html {
 
 }
 
-.icon-link {
+.icon-link>a {
   width: 2.5rem;
   height: 2.5rem;
   transition: 0.2s;
+  display: block;
 
 }
 
-.icon-link:hover {
+.icon-link>a:hover {
   width: 3rem;
   height: 3rem;
 
 }
 
-.telegram {
+.telegram>a {
   background: url('./img/icons/telegram.svg') 50% / cover;
 }
 
-.whatsapp {
+.whatsapp>a {
   background: url('./img/icons/whatsapp.svg') 50% / cover;
 }
 
-.email {
+.email>a {
   background: url('./img/icons/email.svg') 50% / cover;
 }
 
@@ -150,38 +172,11 @@ html {
 
 }
 
-.nav-items {
-  display: flex;
-
-}
-
 .logo {
   position: fixed;
   top: 2rem;
   left: 3.75rem;
 }
-
-.nav-item {
-  margin-right: 3.625rem;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.nav-item:hover {
-  color: #FF1A43;
-}
-
-.nav-item:last-child {
-  margin: 0;
-  ;
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: end;
-  padding: 1rem 0;
-}
-
 
 .main {
   height: 100vh;
@@ -197,7 +192,7 @@ html {
   top: 0;
   left: -100%;
   transition: 0.5s;
-  
+
 
 
   display: flex;
@@ -225,6 +220,8 @@ html {
 .talk-icon {
   width: 16.375rem;
   height: 22.25rem;
+  max-width: 100%;
+  max-height: 100%;
   background: url('./img/talk.gif') 50% / contain no-repeat;
   background-size: contain;
   background-repeat: no-repeat;
@@ -274,25 +271,27 @@ html {
 
 .interface {
 
-  position: fixed;
+  position: absolute;
   z-index: 2;
-  left: calc(50% - (50rem / 2));
-  top: 5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 2rem;
   background-color: #000;
-  border-radius: 1rem;
-  width: 50rem;
-  transition: 0.2s;
-  max-height: 90rem;
-  
+  border-radius: 1rem 1rem 0 0;
+  width: 100%;
+  max-width: 50rem;
+  transition: 0.5s;
+  height: 80vh;
+  max-height: 32rem;
+  bottom: 0;
+  gap: 10px;
 
 }
 
 
 .interface.hidden {
-  transform: translateY(200%);
+  bottom: -100%;
 
 
 }
@@ -300,16 +299,18 @@ html {
 .interface-small {
   z-index: 2;
   width: 20rem;
-  height: 7rem;
+  height: 4rem;
   display: flex;
   position: relative;
-  padding: 1rem;
+  padding: .5rem;
   background-color: #000;
   border-radius: 1rem;
   position: fixed;
   transition: 0.2s;
   bottom: 0.5rem;
   right: 1rem;
+  gap: 10px;
+  padding-right: 2rem;
 }
 
 .interface-small.hidden {
@@ -322,11 +323,15 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   font-size: 0.6rem;
   line-height: 1rem;
   color: #ffffff86;
+  background: inherit;
+  padding: 0;
+
+
 
 }
 
@@ -336,25 +341,31 @@ html {
 }
 
 .interface-small .talk-icon {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+
+  height: 3rem;
+
   border-radius: 5rem;
 }
 
 .interface-small .bg-icon {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
+  max-height: 100%;
+  max-width: 100%;
   border-radius: 5rem;
 }
 
 .bg-icon {
   background-size: cover;
-
+  max-width: 40%;
 }
 
 .icon-interface {
   display: flex;
-  background-color: #FF1A43;
+  height: 80%;
+  max-height: 356px;
+  gap: 10px;
   position: relative;
 }
 
@@ -370,12 +381,14 @@ html {
   width: 6rem;
   text-align: center;
   line-height: 0.8rem;
+
+
 }
 
 .close-interface {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: -1.5rem;
+  top: -1.5rem;
   cursor: pointer;
 }
 
@@ -384,21 +397,24 @@ html {
 }
 
 .talk-group {
-  background-color: #000;
+  background-color: #575757;
   padding: 1rem;
   width: 30rem;
   font-size: 0.75rem;
   line-height: 0.9rem;
+  overflow-y: auto;
+
 }
 
 .choise-group {
   padding: 1rem;
   background-color: rgb(5, 66, 46);
-  margin: 0.5rem 0;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 1rem;
+  height: 100%;
+
 }
 
 .choice {
@@ -463,6 +479,11 @@ html {
 .main-item {
   padding: 2rem;
   cursor: pointer;
+  transition: .2s;
+}
+
+.main-item:hover {
+  color: #FF1A43;
 }
 
 .container-main {
@@ -481,22 +502,26 @@ html {
 .window-slide {
   border: 0.01rem solid #6e0961;
   position: relative;
-  width: 60rem;
+  max-width: 60rem;
+  width: 95%;
+
   padding: 5rem;
   background-color: #000000a9;
-  
-  
-  
+
+
 }
+
 .slide-title {
   text-align: center;
 }
+
 .works-slider {
   display: flex;
   overflow-x: hidden;
   justify-content: center;
   gap: 5rem;
 }
+
 .btn-works-slider {
   padding: 1rem;
   cursor: pointer;
@@ -506,18 +531,22 @@ html {
 
 
 }
+
 .btn-next {
- 
+
   right: 1rem;
 }
+
 .btn-prev {
   left: 1rem;
 }
+
 .works-slider {
   padding-top: 2rem;
   transition: 0.2s;
   height: 15rem;
 }
+
 .slide {
   display: flex;
   flex-direction: column;
@@ -531,31 +560,37 @@ html {
   width: 15rem;
   left: calc(50% - 7.5rem);
 }
+
 .slide .description-group {
   opacity: 0;
   transition: 0.2s;
 }
+
 .slide.zoom .description-group {
   opacity: 1;
 }
+
 .description-group {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
 }
-.slide.zoom  {
+
+.slide.zoom {
   left: calc(50% - 7.5rem);
   opacity: 1;
   transform: scale(1);
   z-index: 1;
-  
+
 }
+
 .slide.prev-slide {
   left: 0;
   transform: scale(0.5);
 }
-.slide.zoom + .slide{
+
+.slide.zoom+.slide {
   left: calc(100% - 15rem);
   transform: scale(0.5);
 }
@@ -567,17 +602,89 @@ html {
   width: 10rem;
   height: 10rem;
 }
+
 .preview-img img {
   width: 100%;
   height: 100%;
 }
+
 .desc-slide {
   font-size: 0.6rem;
   color: #ffffff86;
 }
+
 .link-slide {
   font-size: 0.6rem;
   padding: 0.5rem;
   background-color: #FF1A43;
   cursor: pointer;
+}
+
+@media (max-width:1060px) {
+  html {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width:590px) {
+  .container-main {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .window-slide {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .interface {
+    width: 95%;
+    height: 80vh;
+    max-height: 100%;
+  }
+
+  .icon-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-height: 80%;
+  }
+
+  .bg-icon {
+    max-width: 100%;
+    height: 40%;
+  }
+
+  .choise-group {
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .talk-group {
+    height: 100%;
+    width: 100%;
+  }
+  .icon-change {
+    position: absolute;
+    bottom: auto;
+    top: 0;
+    right: auto;
+    left: 0;
+    font-size: 0.5rem;
+    background-color: #FF1A43;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: .2s;
+    width: 6rem;
+    text-align: center;
+    line-height: 0.8rem;
+}
+
 }

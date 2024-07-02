@@ -21,27 +21,27 @@ window.addEventListener('load', () => {
 });
 
 
-setTimeout(() => {
-    navBar.style.top = `-${navBar.clientHeight}px`;
-    document.addEventListener('mousemove', function (event) {
-        const y = event.clientY;
-        if (y <= window.innerHeight * 0.1) {
-            navBar.style.top = "0";
-        } else {
-            navBar.style.top = `-${navBar.clientHeight}px`;
-        }
-    });
+// setTimeout(() => {
+//     navBar.style.top = `-${navBar.clientHeight}px`;
+//     document.addEventListener('mousemove', function (event) {
+//         const y = event.clientY;
+//         if (y <= window.innerHeight * 0.1) {
+//             navBar.style.top = "0";
+//         } else {
+//             navBar.style.top = `-${navBar.clientHeight}px`;
+//         }
+//     });
 
-    sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
-    document.addEventListener('mousemove', function (event) {
-        const x = event.clientX;
-        if (x <= window.innerWidth * 0.1) {
-            sideBar.style.left = "0";
-        } else {
-            sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
-        }
-    });
-}, 5000);
+//     sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
+//     document.addEventListener('mousemove', function (event) {
+//         const x = event.clientX;
+//         if (x <= window.innerWidth * 0.1) {
+//             sideBar.style.left = "0";
+//         } else {
+//             sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
+//         }
+//     });
+// }, 5000);
 
 const arraySections = document.querySelectorAll('.section-slide');
 function openSection(idSection) {
@@ -55,7 +55,11 @@ function openSection(idSection) {
 const choiseGroup = document.querySelector('.choise-group');
 const talkGroup = document.querySelector('.talk-group');
 const iconTalk = document.querySelector('.talk-icon');
+const btnIconChange = document.querySelector('.icon-change');
 
+function btnIconShow() {
+    btnIconChange.style.display = '';
+}
 
 function selectChoise(choise) {
     let arrChoises = document.querySelectorAll('.choice');
@@ -65,15 +69,16 @@ function selectChoise(choise) {
 
     switch (choise.getAttribute("data-choise")) {
         case 'who':
+            btnIconShow();
             addTalk('Ой, извини, видимо коммуникатор барахлит. Секунду.. Ах да! Меня Антон зовут.', true);
             addChoise([{ data: 'ha-ha', text: 'Ха, коммуникатор..' }, { data: 'about', text: 'Привет, Антон. Ну и что дальше?' }]);
             break;
         case 'ha-ha':
-            addTalk('Смейся давай, ага. Быстро тогда про всё тут расскажу, наверху навигация по сайту, слева плашка связь со мной. Посмотри работы, свяжись со мной. Пока!', true);
+            addTalk('Смейся давай, ага. Быстро тогда про всё тут расскажу, в меню навигация по сайту, слева плашка связь со мной. Посмотри работы, свяжись со мной. Пока!', true);
 
             break;
         case 'about':
-            addTalk('Я разработчик сайтов, тут можешь посмотреть мои работы и связаться со мной. Сверху навигация, слева способы связи. Просто наведи мышкой к краям.', true);
+            addTalk('Я разработчик сайтов, тут можешь посмотреть мои работы и связаться со мной. В меню навигация, слева способы связи.', true);
             addChoise([{ data: 'Bye', text: 'Посмотрю' }, { data: 'AI', text: 'А ты получается ИИ?' }]);
             break;
         case 'Bye':
@@ -85,6 +90,7 @@ function selectChoise(choise) {
 
             break;
         case 'hello':
+            
             addTalk('Видимо что-то со связью, пару секунд. Извини, что не представился. Меня Антон зовут.', true);
             addChoise([{ data: 'about', text: 'Антон, ну и кто ты?' }]);
             break;

@@ -24,7 +24,7 @@ fetch('./works/works.json')
                 <div class="description-group">
                     <div class="title-slide">${title}</div>
                     <div class="desc-slide">${desc}</div>
-                    <div class="link-slide" onclick='window.open("${link}")'>Открыть</div>
+                    <div class="btn link-slide" onclick='window.open("${link}")'>Открыть</div>
                 </div>
                 
             </div>
