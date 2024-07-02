@@ -1,10 +1,8 @@
 const loader = document.querySelector('.loader');
-const navBar = document.querySelector('.header');
 const sideBar = document.querySelector('.side-links');
 
 window.addEventListener('load', () => {
     setTimeout(() => {
-        navBar.style.top = "0";
         sideBar.style.left = '0';
         loader.classList.add('hidden');
         setTimeout(() => {

@@ -691,5 +691,10 @@ html {
     text-align: center;
     line-height: 0.8rem;
   }
+  .logo {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
 
 }
