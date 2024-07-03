@@ -113,7 +113,6 @@ function addTalk(string, bool) {
 const interface = document.getElementById('interface');
 const smallInterface = document.getElementById('interface-small');
 
-smallInterface.draggable = true;
 smallInterface.addEventListener('touchmove', e => {
     let touch = e.targetTouches[0];
     smallInterface.style.left = `${touch.pageX - smallInterface.clientWidth / 2}px`;

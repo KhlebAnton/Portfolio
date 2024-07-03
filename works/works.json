@@ -5,6 +5,12 @@
         "description": "Теплицы казани",
         "link": "https://kazan-teplica.ru/"
     },
+    "ailalab": {
+        "title": "Aila Lab",
+        "preview": "./works/Ailalab.png",
+        "description": "Лендинг ",
+        "link": "https://khlebanton.github.io/Ailalab/"
+    },
     "roboschool": {
         "title": "RoboSchool",
         "preview": "./works/robotSchool.png",
