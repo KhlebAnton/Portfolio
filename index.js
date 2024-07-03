@@ -88,7 +88,7 @@ function selectChoise(choise) {
 
             break;
         case 'hello':
-            
+
             addTalk('Видимо что-то со связью, пару секунд. Извини, что не представился. Меня Антон зовут.', true);
             addChoise([{ data: 'about', text: 'Антон, ну и кто ты?' }]);
             break;
@@ -112,6 +112,14 @@ function addTalk(string, bool) {
 
 const interface = document.getElementById('interface');
 const smallInterface = document.getElementById('interface-small');
+
+smallInterface.draggable = true;
+smallInterface.addEventListener('touchmove', e => {
+    let touch = e.targetTouches[0];
+    smallInterface.style.left = `${touch.pageX - smallInterface.clientWidth / 2}px`;
+    smallInterface.style.top = `${touch.pageY - smallInterface.clientHeight / 2}px`;
+    e.preventDefault();
+  }, false);
 function toggleInterface() {
     interface.classList.toggle('hidden');
     smallInterface.classList.toggle('hidden');

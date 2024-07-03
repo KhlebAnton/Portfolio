@@ -306,16 +306,17 @@ html {
   background-color: #000;
   border-radius: 1rem;
   position: fixed;
-  transition: 0.2s;
+  transition: opacity 0.2s;
   bottom: 0.5rem;
   right: 1rem;
   gap: 10px;
   padding-right: 2rem;
+  opacity: 1;
 }
 
 .interface-small.hidden {
-  transform: translateY(200%);
-
+ opacity: 0;
+pointer-events: none;
 
 }
 
