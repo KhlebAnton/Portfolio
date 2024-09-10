@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работы</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="loader">
+        <h1>X</h1>
+    </div>
+    <div class="filter-bg"></div>
+    <main>
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="logo">
+                    Khlebdev
+                </div>
+                <nav class="nav-bar">
+                    <div class="nav-bar-item" onclick="window.location.href='./all-works.html'">Назад</div>
+                </nav>
+
+            </div>
+        </header>
+        <div class="section section-breadcrumb">
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ul>
+                    <li><a href="./index.html">Главная</a></li>
+                    <li><a href="./all-works.html">Все работы</a></li>
+                    <li><span class="work-page" aria-current="page">Product</span></li>
+                </ul>
+            </nav>
+        </div>
+
+        <section class="section work-container">
+
+        </section>
+    </main>
+
+    <script>
+        let idWork = document.location.search.split('=')[1];
+        let works = null;
+        const workPage = document.querySelector('.work-page');
+        fetch('./works/works.json')
+            .then((response) => { return response.json(); })
+            .then((data) => {
+                works = data;
+                addWorks();
+            });
+        let worksContainer = document.querySelector('.work-container');
+        function addWorks() {
+            works.forEach(work => {
+                if (idWork === work.id) {
+                    worksContainer.innerHTML = `
+                    <h1 class='work-title'>${work.title}</h1>
+                    <div class='work-preview'>
+                        <img loading="lazy" src='${work.preview}'>
+                        <div class='work-desc'>
+                            <p>${work.desc}</p>
+                            <a class="work-link" target="_blank" href ="${work.link}" '>Ссылка на сайт</a>
+                        </div>
+                        
+                    </div>
+                    <div class="works-img-container"></div>
+                    
+        `;
+                    workPage.textContent = work.title;
+                    let imgContainer = document.querySelector('.works-img-container');
+                    work.screen.forEach((screen) => {
+                        imgContainer.innerHTML += `
+                    <img loading="lazy" style='width:90%; margin-top:40px;' class='work-screen' src='${screen}'>
+                    `
+                    })
+                }
+
+            });
+        }
+        const header = document.querySelector('header');
+
+        document, addEventListener('scroll', () => {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                header.classList.add('header-mini');
+            } else {
+                header.classList.remove('header-mini');
+            }
+        })
+
+        const loader = document.querySelector('.loader');
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('main').style.opacity = '1';
+                loader.classList.add('hidden');
+            })
+        });
+
+
+    </script>
+</body>
+
+</html>

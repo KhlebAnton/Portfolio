@@ -1,32 +1,57 @@
-{
-    "teplica": {
+[
+    {
+        "id": "teplica",
         "title": "Казань-теплица",
         "preview": "./works/teplica.png",
         "description": "Теплицы казани",
-        "link": "https://kazan-teplica.ru/"
+        "link": "https://kazan-teplica.ru/",
+        "desc": "Cайт для продажи поликарбоната и теплиц в г.Казань",
+        "screen": [
+            "./works/teplica-screen.png"
+        ]
     },
-    "ailalab": {
+    {
+        "id": "ailalab",
         "title": "Aila Lab",
         "preview": "./works/Ailalab.png",
         "description": "Лендинг ",
-        "link": "https://khlebanton.github.io/Ailalab/"
+        "link": "https://khlebanton.github.io/Ailalab/",
+        "desc": "Верстка лендинга по дизайну в psd",
+        "screen": [
+            "./works/Ailalab-screen.png"
+        ]
     },
-    "roboschool": {
+    {
+        "id": "roboschool",
         "title": "RoboSchool",
         "preview": "./works/robotSchool.png",
         "description": "Лендинг для курсов",
-        "link": "https://khlebanton.github.io/school_Robot/"
+        "link": "https://khlebanton.github.io/school_Robot/",
+        "desc": "Тренировка в верстке по дизайну в Figma",
+        "screen": [
+            "./works/robotSchool-screen.png"
+        ]
     },
-    "rumtibet": {
+    {
+        "id": "rumtibet",
         "title": "RumTibet",
         "preview": "./works/rumTibet.png",
         "description": "Туры в Тибете",
-        "link": "https://khlebanton.github.io/rumTibet/"
+        "link": "https://khlebanton.github.io/rumTibet/",
+        "desc": "Тренировка в верстке по дизайну в Figma",
+        "screen": [
+            "./works/rumTibet-screen.png"
+        ]
     },
-    "mybox": {
+    {
+        "id": "mybox",
         "title": "Mybox",
         "preview": "./works/UI.png",
         "description": "Интерфейс для игр",
-        "link": "https://github.com/KhlebAnton/MyBoxOleg.git"
+        "link": "https://github.com/KhlebAnton/MyBoxOleg.git",
+        "desc": "Верстка интерфейса веб-игры для Майбокс.",
+        "screen": [
+            "./works/UI-screen.png","./works/UI-screen1.png","./works/UI-screen2.png","./works/UI-screen3.png"
+        ]
     }
-}
+]

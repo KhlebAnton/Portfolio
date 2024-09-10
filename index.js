@@ -1,54 +1,27 @@
 const loader = document.querySelector('.loader');
-const sideBar = document.querySelector('.side-links');
 
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        sideBar.style.left = '0';
+    
+        document.querySelector('main').style.opacity = '1';
         loader.classList.add('hidden');
-        setTimeout(() => {
-            smallInterface.classList.remove('hidden');
-        }, 1000);
+        smallInterface.classList.remove('hidden');
+        
 
-        openSection('home');
         addTalk('Привет!', true);
         addChoise([{ data: 'who', text: 'Ты кто??' }, { data: 'hello', text: 'Эм, привет..' }]);
 
-    }, 2000)
-
-
+    
 });
 
+const header = document.querySelector('header'); 
 
-// setTimeout(() => {
-//     navBar.style.top = `-${navBar.clientHeight}px`;
-//     document.addEventListener('mousemove', function (event) {
-//         const y = event.clientY;
-//         if (y <= window.innerHeight * 0.1) {
-//             navBar.style.top = "0";
-//         } else {
-//             navBar.style.top = `-${navBar.clientHeight}px`;
-//         }
-//     });
-
-//     sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
-//     document.addEventListener('mousemove', function (event) {
-//         const x = event.clientX;
-//         if (x <= window.innerWidth * 0.1) {
-//             sideBar.style.left = "0";
-//         } else {
-//             sideBar.style.left = `-${sideBar.clientWidth - sideBar.clientWidth * 0.1}px`;
-//         }
-//     });
-// }, 5000);
-
-const arraySections = document.querySelectorAll('.section-slide');
-function openSection(idSection) {
-    arraySections.forEach((item) => {
-        item.classList.remove('visible')
-    })
-    let section = document.getElementById(idSection);
-    section.classList.add('visible');
-}
+document,addEventListener('scroll', ()=> {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        header.classList.add('header-mini');
+    } else {
+        header.classList.remove('header-mini');
+    }
+})
 
 const choiseGroup = document.querySelector('.choise-group');
 const talkGroup = document.querySelector('.talk-group');
@@ -88,7 +61,7 @@ function selectChoise(choise) {
 
             break;
         case 'hello':
-
+            btnIconShow();
             addTalk('Видимо что-то со связью, пару секунд. Извини, что не представился. Меня Антон зовут.', true);
             addChoise([{ data: 'about', text: 'Антон, ну и кто ты?' }]);
             break;
@@ -96,6 +69,7 @@ function selectChoise(choise) {
             break;
     }
 }
+
 
 function addTalk(string, bool) {
     let stroke = document.createElement('p');
@@ -113,12 +87,7 @@ function addTalk(string, bool) {
 const interface = document.getElementById('interface');
 const smallInterface = document.getElementById('interface-small');
 
-smallInterface.addEventListener('touchmove', e => {
-    let touch = e.targetTouches[0];
-    smallInterface.style.left = `${touch.pageX - smallInterface.clientWidth / 2}px`;
-    smallInterface.style.top = `${touch.pageY - smallInterface.clientHeight / 2}px`;
-    e.preventDefault();
-  }, false);
+
 function toggleInterface() {
     interface.classList.toggle('hidden');
     smallInterface.classList.toggle('hidden');

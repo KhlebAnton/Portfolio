@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работы</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="loader">
+        <h1>X</h1>
+    </div>
+    <div class="filter-bg"></div>
+    <main class="main">
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="logo">
+                    Khlebdev
+                </div>
+                <nav class="nav-bar">
+                    <div class="nav-bar-item" onclick="window.location.href='/#works'">Назад</div>
+                </nav>
+            </div>
+        </header>
+        
+        
+        <section id="works" class="section">
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ul>
+                    <li><a href="./index.html">Главная</a></li>
+                    <li><span class="work-page" aria-current="page">Все работы</span></li>
+                </ul>
+            </nav>
+            <h1>Все работы</h1>
+            <div class="works-container"></div>
+        </section>
+    </main>
+
+    <script>
+        const worksSection = document.getElementById('works');
+
+        let works = null;
+        fetch('./works/works.json')
+            .then((response) => { return response.json(); })
+            .then((data) => {
+                works = data;
+                addWorks();
+            });
+        let worksContainer = document.querySelector('.works-container');
+        function addWorks() {
+
+            works.forEach(work => {
+
+                let newWork = document.createElement('div');
+                newWork.classList.add('work-item');
+                newWork.addEventListener('click', () => {
+                    window.location.href = `./works.html?id=${work.id}`
+                })
+                newWork.innerHTML = `
+        <img loading="lazy" src='${work.preview}'>
+        <h3 class='work-title'>${work.title}</h3>
+        `
+
+                worksContainer.appendChild(newWork);
+
+
+
+            });
+        }
+
+        const header = document.querySelector('header');
+
+        document, addEventListener('scroll', () => {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                header.classList.add('header-mini');
+            } else {
+                header.classList.remove('header-mini');
+            }
+        })
+
+        const loader = document.querySelector('.loader');
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('main').style.opacity = '1';
+                loader.classList.add('hidden');
+            })
+        });
+    </script>
+</body>
+
+</html>

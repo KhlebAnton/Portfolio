@@ -65,77 +65,63 @@
         <div class="talk-group"> Новое сообщение!</div>
         <div class="close-interface" onclick="toggleInterface()">+</div>
     </div>
-    <div class="side-links" ontouchstart>
-        <div class="icon-link telegram" ontouchstart><a href="https://t.me/khlebAnton" target="_blank"></a></div>
-        <div class="icon-link whatsapp" ontouchstart><a href="https://wa.me/+79082558446" target="_blank"></a></div>
-        <div class="icon-link email" ontouchstart><a href="mailto:khleb.4nton@yandex.ru"></a></div>
-    </div>
 
 
-    <div class="logo">
-        KHLEB
-    </div>
 
 
-    <main class="main">
 
-        <div id="home" class="home-main section-slide">
-            <h1 class="title-home">Привет</h1>
-            <div class="container-main">
-                <div class="main-item works" onclick="openSection('works')">
-                    Мои Работы
+
+    <main class="main" style="opacity: 0;">
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="logo">
+                    Khlebdev
                 </div>
-                <div class="main-item works" onclick="openSection('games')">
-                    Мои Игры
-                </div>
-                <div class="main-item works" onclick="openSection('contacts')">
-                    Мои Контакты
-                </div>
-            </div>
-        </div>
-        <div id="works" class="section-slide">
-            <div class="window-slide">
-                <div class="btn btn-home" onclick="openSection('home')">В меню</div>
-                <h2 class="slide-title">Мои Работы</h2>
-
-                <div class="wrapper-works-slider">
-                    <div id="slider" class="works-slider">
-                        <div class="slide">
-                            <div class="preview-img">
-                                <img src="./works/teplica.png" alt="">
-                            </div>
-                            <div class="title-slide">Теплицы</div>
-                            <div class="desc-slide">Тут теплицы</div>
-                            <div class="link-slide">Ссылка</div>
-                        </div>
-                    </div>
-                    <div class="btn btn-works-slider btn-next" onclick="nextSlide()">Далее</div>
-                    <div class="btn btn-works-slider btn-prev" onclick="prevSlide()">Назад</div>
-                </div>
+                <nav class="nav-bar">
+                    <a href="./all-works.html" class="nav-bar-item">Работы</a>
+                    <!-- <div class="nav-bar-item">Контакты</div> -->
+                </nav>
             </div>
 
-        </div>
-        <div id="games" class="section-slide">
-            <div class="window-slide">
-                <div class="btn btn-home" onclick="openSection('home')">В меню</div>
-                <h2 class="slide-title">Мои Работы</h2>
-                в разработке..
-            </div>
+        </header>
+        <section class="section sectione-home">
+            <h1>Привет ты на главной странице</h1>
+        </section>
 
-        </div>
-        <div id="contacts" class="section-slide">
-            <div class="window-slide">
-                <div class="btn btn-home" onclick="openSection('home')">В меню</div>
-                <h2 class="slide-title">Контакты</h2>
+        <section class="section section-about">
+            <h2>Обо мне</h2>
+            <p>Зовут Антон, верстаю сайты, интерфейсы веб-приложений, еще и увлечений много. 
+                <br><br>
+                Html css +js - мои навыки. <br> <br>
+                Да, этот сайт еще не готов полностью, но все что нужно - можно найти</p>
+        </section>
+        <section id="works" class="section section-myworks">
+            <h2>Мои работы</h2>
+            <div class="works-container">
+                
             </div>
+            <a href="./all-works.html" class="work-link">Посмотреть ещё</a>
+        </section>
+        <!-- <section class="section section-reviews">
+            <h2>Отзывы от клиентов</h2>
 
-        </div>
+        </section> -->
+        <section class="section section-contacts">
+            <h2>Мои Контакты</h2>
+            <div class="contact-items">
+                <a href="mailto:khleb.4nton@yandex.ru">khleb.4nton@yandex.ru</a>
+                <a href="https://t.me/khlebAnton">@khlebAnton</a>
+                <a href="tel:+79082558446">+7(908)255-84-46</a>
+                <a href="https://github.com/KhlebAnton">Git</a>
+            </div>
+        </section>
+
     </main>
 
 
 
     <script src="index.js?v=4"></script>
-    <script defer src="works.js?v=3"></script>
+    <script src="works.js?v=3"></script>
 </body>
 
 </html>
